@@ -15,6 +15,7 @@ marp: true
 
 - DB를 사용하는 간단한 블로그 서비스
 - 장고 서버, DB, log 서버 가 별도의 컨테이너에 존재
+- 외부 IP에서 장고 서버는 접근 가능 DB, Log 서버는 접근 불가능
 - 각 이미지는 로컬에 자신의 레지스터리에 올림
 
 ---
@@ -60,7 +61,27 @@ docker pull debian
 `docker pull [OPTIONS] NAME[:TAG|@DIGEST]`
 
 - https://docs.docker.com/engine/reference/commandline/pull/
+- https://www.44bits.io/ko/post/how-docker-image-work
+- https://devaom.tistory.com/5
 
 ---
 
-##
+## ps
+
+```
+docker ps
+```
+
+- https://docs.docker.com/engine/reference/commandline/ps/
+
+---
+
+## rm
+
+- https://docs.docker.com/engine/reference/commandline/rm/
+
+---
+
+## stop
+
+---
