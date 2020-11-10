@@ -52,6 +52,10 @@ docker start my_container
 
 ---
 
+## attach
+
+---
+
 ## Pull
 
 ```
@@ -78,6 +82,11 @@ docker ps
 
 ## rm
 
+#### shotCut
+
+`docker rm $(docker ps -a -q)`
+`docker container prune`
+
 - https://docs.docker.com/engine/reference/commandline/rm/
 
 ---
@@ -85,3 +94,88 @@ docker ps
 ## stop
 
 ---
+
+# Network
+
+## Inside of network
+
+-
+
+![w:500 h:320](../image/docker-network.png)
+
+- https://joont92.github.io/docker/network-%EA%B5%AC%EC%A1%B0/
+
+---
+
+## docker port
+
+---
+
+## link
+
+- link를 쓸때 주의 할 점
+  - link 의 대상이 되는 컨테이너가 없다면 컨테이너가 실행되지 않음!
+  - deprecated
+
+---
+
+# Volume
+
+---
+
+## -v
+
+```
+\[호스트의 디렉토리\]:\[컨테이너의 디렉토리\]
+```
+
+- 컨테이너에 해당 디렉토리의 파일이 있다면 덮어쓰기가 됨
+
+## --volumes-from
+
+![w:500 h:320](../image/--volumes-from.png)
+
+---
+
+## docker volume
+
+### volume 은 어디 있을까?
+
+```
+docker volume inspect [VOLUME_NAME]
+```
+
+```
+❯ docker volume inspect minikube
+[
+    {
+        "CreatedAt": "2020-09-03T05:03:16Z",
+        "Driver": "local",
+        "Labels": {
+            "created_by.minikube.sigs.k8s.io": "true",
+            "name.minikube.sigs.k8s.io": "minikube"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/minikube/_data",
+        "Name": "minikube",
+        "Options": {},
+        "Scope": "local"
+    }
+]
+```
+
+---
+
+```
+❯ cd /var/lib/docker/volumes/minikube/_data
+cd: no such file or directory: /var/lib/docker/volumes/minikube/_data
+```
+
+맥/윈도우 에서는 VM 위에서 작동하므로 실제 위치는 다른 곳에 위치
+
+실제는 여기 (도커 버전, OS 버전 바다 다름)
+
+```
+~/Library/Containers/com.docker.docker/Data/vms/0/Docker.raw
+```
+
+- https://stackoverflow.com/questions/19234831/where-are-docker-images-stored-on-the-host-machine/37642236#37642236
