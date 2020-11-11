@@ -13,10 +13,9 @@ marp: true
 
 # What to do
 
-- DB를 사용하는 간단한 블로그 서비스
-- 장고 서버, DB 가 별도의 컨테이너에 존재
-- 외부 IP에서 장고 서버는 접근 가능 DB서버는 접근 불가능
-- 각 이미지는 로컬에 자신의 레지스터리에 올림
+- DB를 사용하는 간단한 방명록 서비스
+- 프론트, 서버, DB 가 별도의 컨테이너에 존재
+- 외부 IP에서 프론트 서버는 접근 가능 API 서버,DB서버는 접근 불가능
 
 ---
 
@@ -198,3 +197,23 @@ cd: no such file or directory: /var/lib/docker/volumes/minikube/_data
 ---
 
 # log
+
+---
+
+# Docker Image
+
+---
+
+## Docker Image 생성
+
+---
+
+## Docker 이미지의 구조
+
+---
+
+## Docker 이미지 추출
+
+---
+
+## Docker 이미지 배포
