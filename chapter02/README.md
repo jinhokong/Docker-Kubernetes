@@ -14,8 +14,8 @@ marp: true
 # What to do
 
 - DB를 사용하는 간단한 블로그 서비스
-- 장고 서버, DB, log 서버 가 별도의 컨테이너에 존재
-- 외부 IP에서 장고 서버는 접근 가능 DB, Log 서버는 접근 불가능
+- 장고 서버, DB 가 별도의 컨테이너에 존재
+- 외부 IP에서 장고 서버는 접근 가능 DB서버는 접근 불가능
 - 각 이미지는 로컬에 자신의 레지스터리에 올림
 
 ---
@@ -99,15 +99,26 @@ docker ps
 
 ## Inside of network
 
--
-
 ![w:500 h:320](../image/docker-network.png)
 
+- veth => virtual eth
+- docker() => 각 veth 인터페이스와 바인딩 돼 호스트의 eth()인터페이스와 이어주는 역할
 - https://joont92.github.io/docker/network-%EA%B5%AC%EC%A1%B0/
 
 ---
 
-## docker port
+## network driver
+
+- bridge
+  - 컨테이너와 컨테이너를 연결할때 사용
+  - connect, disconnect 명령어 사용 가능
+- host
+  - 호스트의 네트워크 환경을 사용가능
+- none
+  - 외부와 단절
+- contanier
+  - 다른 컨테이너의 네트워크 네임 스페이스 공유 가능
+- overlay
 
 ---
 
@@ -116,6 +127,10 @@ docker ps
 - link를 쓸때 주의 할 점
   - link 의 대상이 되는 컨테이너가 없다면 컨테이너가 실행되지 않음!
   - deprecated
+
+---
+
+## docker port
 
 ---
 
@@ -179,3 +194,7 @@ cd: no such file or directory: /var/lib/docker/volumes/minikube/_data
 ```
 
 - https://stackoverflow.com/questions/19234831/where-are-docker-images-stored-on-the-host-machine/37642236#37642236
+
+---
+
+# log
