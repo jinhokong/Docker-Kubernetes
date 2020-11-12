@@ -40,9 +40,12 @@ docker run -i -t ubuntu
 
 ---
 
-## Create
+## Create, Start
 
 ```
+# 컨테이너를 생성
+docker create -i -t --name my_centos centos:7
+# 컨테이너를 실행
 docker start my_container
 ```
 
